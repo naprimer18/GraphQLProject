@@ -2,38 +2,38 @@
 import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 
-import { dogsQuery } from './queries';
-import { addDog } from './mutations';
-import { deleteDog } from './mutations';
-import { updateDog } from './mutations';
+import { MovieTitleQuery } from './queries';
+import { addMovieTitle } from './mutations';
+import { deleteMovieTitle } from './mutations';
+import { updateMovieTitle } from './mutations';
 
 
-const withGraphqlAdd = graphql(addDog, {
+const withGraphqlAdd = graphql(addMovieTitle, {
     props: ({mutate}) => ({
-        addDog: newDog => mutate({
-            variables: newDog,
-            refetchQueries: [{query : dogsQuery}]
+        addMovieTitle: newMovieTitle => mutate({
+            variables: newMovieTitle,
+            refetchQueries: [{query : MovieTitleQuery}]
         })
     })
 })
 
-const withGraphqlDelet = graphql(deleteDog, {
+const withGraphqlDelet = graphql(deleteMovieTitle, {
     props: ({mutate}) => ({
-        deleteDog: id => mutate({
+        deleteMovieTitle: id => mutate({
             variables: id,
-            refetchQueries: [{query : dogsQuery}]
+            refetchQueries: [{query : MovieTitleQuery}]
         })
     })
 })
 
-const withGraphqlUpdate = graphql(updateDog, {
+const withGraphqlUpdate = graphql(updateMovieTitle, {
     props: ({mutate}) => ({
-        renameDog: renameDog => mutate({
-            variables: renameDog,
-            refetchQueries: [{query : dogsQuery}]
+        renameMovieTitle: renameMovieTitle => mutate({
+            variables: renameMovieTitle,
+            refetchQueries: [{query : MovieTitleQuery}]
         })
     })
 })
 
 
-export default compose(graphql(dogsQuery),withGraphqlAdd,withGraphqlDelet,withGraphqlUpdate);
+export default compose(graphql(MovieTitleQuery),withGraphqlAdd,withGraphqlDelet,withGraphqlUpdate);

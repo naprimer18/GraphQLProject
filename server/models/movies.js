@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Dog = new Schema({
+const Movies = new Schema({
     name: String,
 });
 
-module.exports = mongoose.model('Dog', Dog);
+module.exports = mongoose.model('Movies', Movies);

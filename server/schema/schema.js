@@ -2,10 +2,10 @@ const graphql = require('graphql');
 
 const { GraphQLObjectType , GraphQLString, GraphQLSchema, GraphQLList , GraphQLID} = graphql;
 
-const Dog = require('../models/dog');
+const Movies = require('../models/movies');
 
-const DogType = new GraphQLObjectType({
-    name: "Dogs",
+const MoviesType = new GraphQLObjectType({
+    name: "Movies",
     fields:{
         name: { type: GraphQLString},
         id: { type: GraphQLString},
@@ -15,11 +15,11 @@ const DogType = new GraphQLObjectType({
 const Query = new GraphQLObjectType({
     name: "Query",
     fields:{
-        dog:{
-            type: GraphQLList(DogType),
+        movies:{
+            type: GraphQLList(MoviesType),
             args: { id: { type: GraphQLString }},
             resolve(parent,args) {
-                return Dog.find({})
+                return Movies.find({})
             }
         }
     }
@@ -28,28 +28,28 @@ const Query = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
-        addDog:{
-            type: DogType,
+        addMovie:{
+            type: MoviesType,
             args: { name: { type: GraphQLString }},
             resolve(parent,args) {
-                const newDog = new Dog({
+                const newMovie = new Movies({
                     name: args.name
                 })
-                return newDog.save();
+                return newMovie.save();
             }
         },
-        deleteDog:{
-            type: DogType,
+        deleteMovie:{
+            type: MoviesType,
             args: { id: { type: GraphQLString }},
             resolve(parent,args) {
-                return Dog.findByIdAndDelete(args.id);
+                return Movies.findByIdAndDelete(args.id);
             }
         },
-        updateDog:{
-            type: DogType,
+        updateMovie:{
+            type: MoviesType,
             args: {id: { type: GraphQLString }, name: { type: GraphQLString }},
             resolve(parent,args) {
-                return Dog.findByIdAndUpdate(args.id, {$set: {name: args.name}}, {new: true});
+                return Movies.findByIdAndUpdate(args.id, {$set: {name: args.name}}, {new: true});
             }
         }
     }

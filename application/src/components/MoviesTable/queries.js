@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost';
 
-export const dogsQuery = gql`
-  query dogsQuery {
-    dog {
+export const MovieTitleQuery = gql`
+  query MovieTitleQuery {
+    movies {
       name,
       id
     }
