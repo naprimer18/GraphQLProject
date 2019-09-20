@@ -33,10 +33,10 @@ class MoviesTable extends React.Component {
     console.log("data ", this.props)
     return (
       <div>
-        <div>
+        <div className="names-ground">
           {   
           data.dog !== undefined ?
-          data.dog.map((item, key) => <div key={key}>Name is {item.name} <button onClick={() => this.deletDog(item.id)}>X</button><button onClick={() => this.setState({flagEdit: !this.state.flagEdit, renameId: item.id})}>Edit</button> </div> )
+          data.dog.map((item, key) => <div key={key}><button className="deletButton" onClick={() => this.deletDog(item.id)}>X</button><button className="editButton" onClick={() => this.setState({flagEdit: !this.state.flagEdit, renameId: item.id})}>Edit</button> - {item.name} </div> )
           :null
           } 
         </div>

@@ -1,0 +1,68 @@
+  
+body {
+
+  background-image: url("https://reactapp.ir/wp-content/uploads/1049092_8c52_2.jpg"); cover:none;
+  background-size:cover; 
+  width: 100%;
+  height:100%;
+}
+
+input {
+	width:250px;
+	height:40px;
+	border-radius:20px;
+	font-size:20px;
+	margin-right:20px;
+	text-align: center;
+}
+
+li {
+	font-size:30px;
+	margin:10px;
+	color:white;
+	background-color:#4A9672FF;
+	border-radius: 25px;
+}
+
+button{
+	width:150px;
+	height:40px;
+	font-size:20px;
+	border-radius:30px;
+	color:white;
+	background:#D03322FF;
+	border:solid 0px;	
+	margin:10px;
+}
+
+button:hover {
+	background:#4A9672FF;	
+}
+
+.nav {
+	position: absolute;
+	left: 35%;
+	margin:10px; 
+}
+
+.redact {
+	position: absolute;
+	top: 25%;
+	margin:10px; 
+}
+.deletButton {
+	width:40px;
+	height:40px;
+}
+
+.editButton {
+    width:70px;
+	height:40px
+}
+
+.names-ground {
+    color: #D03322FF;
+    font-size: 35px;
+    width: 100%;
+    height: 100%;
+}
