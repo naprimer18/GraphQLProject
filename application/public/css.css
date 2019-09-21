@@ -1,7 +1,6 @@
   
 body {
-
-  background-image: url("https://reactapp.ir/wp-content/uploads/1049092_8c52_2.jpg"); cover:none;
+  background: rgb(41, 30, 30);
   background-size:cover; 
   width: 100%;
   height:100%;
@@ -9,7 +8,7 @@ body {
 
 input {
 	width:300px;
-	height:40px;
+	height:30px;
 	border-radius:20px;
 	font-size:20px;
 	margin-right:20px;
@@ -17,11 +16,21 @@ input {
 	outline:none;
 }
 
+label {
+	font-size: 20px;
+	padding-right: 10px;
+}
+
+.isWatched-label {
+	font-size: 30px;
+	color: #ffffff;
+}
+
 button{
 	width:150px;
 	height:40px;
 	font-size:20px;
-	border-radius:30px;
+	border-radius:10px;
 	color:white;
 	background:#D03322FF;
 	border:solid 0px;	
@@ -35,13 +44,13 @@ button:hover {
 }
 
 .delet-button {
-	width:40px;
-	height:40px;
+	width:35px;
+	height:30px;
 }
 
 .edit-button {
-    width:70px;
-	height:40px
+    width:50px;
+	height:30px
 }
 
 .names-ground {
@@ -57,4 +66,23 @@ button:hover {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.close-modal-button {
+	width: 35px;
+    height: 33px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modal-footer-button {
+	float: right;
+	width: 100px;
+    height: 30px;
+}
+
+.items{
+	height: 60px;
+	border-bottom: 1px solid;
 }

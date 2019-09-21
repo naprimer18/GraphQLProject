@@ -12,6 +12,7 @@
     "react-dom": "^16.7.0",
     "react-modal": "^3.10.1",
     "react-scripts": "2.1.3",
+    "react-simple-checkbox": "^1.3.0",
     "react-swipeable-views": "^0.13.1",
     "recompose": "^0.30.0"
   },

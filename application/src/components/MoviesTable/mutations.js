@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost';
 
 export const addMovieTitle = gql`
-  mutation addMovieTitle($name: String) {
-    addMovie(name: $name) {
+  mutation addMovieTitle($name: String, $isWatched: Boolean) {
+    addMovie(name: $name, isWatched: $isWatched) {
       name
     }
   }
@@ -17,8 +17,8 @@ export const deleteMovieTitle = gql`
 `;
 
 export const updateMovieTitle = gql`
-  mutation updateMovieTitle($renameId: String, $rename: String) {
-    updateMovie(id: $renameId ,name: $rename) {
+  mutation updateMovieTitle($renameId: String, $rename: String ,$renameIsWatched: Boolean) {
+    updateMovie(id: $renameId ,name: $rename, isWatched: $renameIsWatched) {
       name
     }
   }

@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 
-const { GraphQLObjectType , GraphQLString, GraphQLSchema, GraphQLList , GraphQLID} = graphql;
+const { GraphQLObjectType , GraphQLString, GraphQLSchema, GraphQLList , GraphQLBoolean} = graphql;
 
 const Movies = require('../models/movies');
 
@@ -9,6 +9,7 @@ const MoviesType = new GraphQLObjectType({
     fields:{
         name: { type: GraphQLString},
         id: { type: GraphQLString},
+        isWatched: { type: GraphQLBoolean},
     }
 })
 
@@ -17,9 +18,9 @@ const Query = new GraphQLObjectType({
     fields:{
         movies:{
             type: GraphQLList(MoviesType),
-            args: { id: { type: GraphQLString }},
-            resolve(parent,args) {
-                return Movies.find({})
+            args: { name: { type: GraphQLString }},
+            resolve(parent, { name }) {
+               return Movies.find({name:{$regex: name, $options: "i"}})
             }
         }
     }
@@ -30,10 +31,11 @@ const Mutation = new GraphQLObjectType({
     fields: {
         addMovie:{
             type: MoviesType,
-            args: { name: { type: GraphQLString }},
+            args: { name: { type: GraphQLString } ,  isWatched: { type: GraphQLBoolean }},
             resolve(parent,args) {
                 const newMovie = new Movies({
-                    name: args.name
+                    name: args.name,
+                    isWatched: args.isWatched
                 })
                 return newMovie.save();
             }
@@ -47,9 +49,9 @@ const Mutation = new GraphQLObjectType({
         },
         updateMovie:{
             type: MoviesType,
-            args: {id: { type: GraphQLString }, name: { type: GraphQLString }},
+            args: {id: { type: GraphQLString }, name: { type: GraphQLString }, isWatched: { type: GraphQLBoolean }},
             resolve(parent,args) {
-                return Movies.findByIdAndUpdate(args.id, {$set: {name: args.name}}, {new: true});
+                return Movies.findByIdAndUpdate(args.id, {$set: {name: args.name, isWatched: args.isWatched }}, {new: true});
             }
         }
     }

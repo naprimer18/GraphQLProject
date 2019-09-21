@@ -1,4 +1,3 @@
-
 import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 
@@ -7,12 +6,17 @@ import { addMovieTitle } from './mutations';
 import { deleteMovieTitle } from './mutations';
 import { updateMovieTitle } from './mutations';
 
+const withGraphqlQuery = graphql(MovieTitleQuery, {
+    options: ({serchName = ''}) => ({
+        variables: {serchName}
+    })
+})
 
 const withGraphqlAdd = graphql(addMovieTitle, {
     props: ({mutate}) => ({
         addMovieTitle: newMovieTitle => mutate({
             variables: newMovieTitle,
-            refetchQueries: [{query : MovieTitleQuery}]
+            refetchQueries: [{query : MovieTitleQuery, variables: {serchName: ''}}]
         })
     })
 })
@@ -21,7 +25,7 @@ const withGraphqlDelet = graphql(deleteMovieTitle, {
     props: ({mutate}) => ({
         deleteMovieTitle: id => mutate({
             variables: id,
-            refetchQueries: [{query : MovieTitleQuery}]
+            refetchQueries: [{query : MovieTitleQuery, variables: {serchName: ''}}]
         })
     })
 })
@@ -30,10 +34,11 @@ const withGraphqlUpdate = graphql(updateMovieTitle, {
     props: ({mutate}) => ({
         renameMovieTitle: renameMovieTitle => mutate({
             variables: renameMovieTitle,
-            refetchQueries: [{query : MovieTitleQuery}]
+            refetchQueries: [{query : MovieTitleQuery, variables: {serchName: ''}}]
         })
     })
 })
 
 
-export default compose(graphql(MovieTitleQuery),withGraphqlAdd,withGraphqlDelet,withGraphqlUpdate);
+
+export default compose(withGraphqlQuery,withGraphqlAdd,withGraphqlDelet,withGraphqlUpdate);
