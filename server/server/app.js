@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3005;
 
 
-mongoose.connect('mongodb+srv://naprimerov_322:2481632vlad@graphql-0ifza.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true ,  useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://naprimerov_322:12345pass@graphql-0ifza.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true ,  useUnifiedTopology: true });
 
 app.use(cors());
 
