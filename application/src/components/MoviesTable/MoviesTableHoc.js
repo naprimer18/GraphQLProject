@@ -1,8 +1,8 @@
 import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 
-import { MovieTitleQuery } from '../GraphQl/queries';
-import { addMovieTitle,deleteMovieTitle,updateMovieTitle } from '../GraphQl/mutations';
+import { MovieTitleQuery } from '../../GraphQl/queries';
+import { addMovieTitle,deleteMovieTitle,updateMovieTitle } from '../../GraphQl/mutations';
 
 const withGraphqlQuery = graphql(MovieTitleQuery, {
     options: ({serchName = ''}) => ({
