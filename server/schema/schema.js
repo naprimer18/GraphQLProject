@@ -1,8 +1,7 @@
 const graphql = require('graphql');
+const Movies = require('../models/movies');
 
 const { GraphQLObjectType , GraphQLString, GraphQLSchema, GraphQLList , GraphQLBoolean} = graphql;
-
-const Movies = require('../models/movies');
 
 const MoviesType = new GraphQLObjectType({
     name: "Movies",

@@ -17,8 +17,8 @@ export const deleteMovieTitle = gql`
 `;
 
 export const updateMovieTitle = gql`
-  mutation updateMovieTitle($renameId: String, $rename: String ,$renameIsWatched: Boolean) {
-    updateMovie(id: $renameId ,name: $rename, isWatched: $renameIsWatched) {
+  mutation updateMovieTitle($nameId: String, $name: String ,$isWatched: Boolean) {
+    updateMovie(id: $nameId ,name: $name, isWatched: $isWatched) {
       name
     }
   }
