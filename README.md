@@ -1,5 +1,5 @@
 # GraphQLProject
 
-server -> npm start
+server --> npm start
 
 application --> npm start
